@@ -1,9 +1,11 @@
 import { StyleSheet, View, StatusBar } from 'react-native';
 import BottomTabs from './Navigations/BottomTabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { useKeepAwake } from '@sayem314/react-native-keep-awake';
 
 
 function App(): React.JSX.Element {
+  useKeepAwake();
   return (
     <View style={styles.container}>
       <StatusBar
@@ -20,7 +22,8 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create(
   {
     container: {
-      flex: 1
+      flex: 1,
+      fontFamily: "Anta-Regular"
     }
   }
 );
