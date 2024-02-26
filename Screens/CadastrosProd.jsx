@@ -1,4 +1,4 @@
-import {FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 const CadastrosProd = ({ route }) => {
@@ -9,17 +9,23 @@ const CadastrosProd = ({ route }) => {
     }, [route])
   );
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor:'#121212' }}>
       <Text style={styles.heading}>Lista de Cadastros</Text>
 
       <FlatList
-      style={{ flex: 1 }}
+        style={styles.container}
+        showsVerticalScrollIndicator={false}
         data={dadosCadastro}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Image source={{ uri: item.imagem }} style={styles.image} />
-            <Text style={styles.cardText}>{`Nome: ${item.nome}, Endereço: ${item.endereco}, Contato: ${item.contato}, Produto: ${item.produto}`}</Text>
+            <View style={styles.textContainer}>
+              <Text style={{ color: 'gray', fontSize: 13 }}>{`${item.contato}`}</Text>
+              <Text style={styles.cardText}>{`${item.nome}`}</Text>
+              <Text style={{ color: 'gray', fontSize: 14 }}>{`${item.produto}`}</Text>
+              <Text style={{ color: 'lightgray', fontSize: 16 }}>{`${item.endereco}`}</Text>
+            </View>
           </View>
         )}
       />
@@ -30,26 +36,36 @@ const CadastrosProd = ({ route }) => {
 export default CadastrosProd;
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+
+  },
   heading: {
     fontWeight: 'bold',
     fontSize: 40,
-    color: '#000',
+    color: '#fff',
     alignSelf: 'center',
     marginBottom: 20,
     marginTop: 30
   },
   card: {
-    backgroundColor: 'lightblue',
+    flexDirection: 'row',
     margin: 10,
     padding: 10,
+    backgroundColor: '#1e1e1e',
     borderRadius: 10,
+    alignItems: 'center',
   },
   cardText: {
-    fontSize: 18,
-    color: '#000',
+    fontSize: 25,
+    color: '#fff',
+  },
+  textContainer:{
+    marginLeft: 15,
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
+    borderRadius: 15,
   },
 });
