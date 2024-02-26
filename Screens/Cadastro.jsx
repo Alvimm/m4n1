@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 import  {launchImageLibrary}  from 'react-native-image-picker';
 
+
+
 const Cadastro = () => {
   const [nome, setNome] = useState('');
   const [endereco, setEndereco] = useState('');
@@ -30,7 +32,7 @@ const Cadastro = () => {
       const novoCadastro = { nome, endereco, contato, produto, imagem };
       const novosDadosCadastro = [...dadosCadastro, novoCadastro];
       setDadosCadastro(novosDadosCadastro);
-      navigation.navigate('prods', { dadosCadastro: novosDadosCadastro });
+      navigation.navigate('produtos', { dadosCadastro: novosDadosCadastro });
       setNome('');
       setEndereco('');
       setContato('');
@@ -99,26 +101,26 @@ const styles = StyleSheet.create(
   {
     container:{
       flex: 1,
-      // backgroundColor: '#fff',
       paddingHorizontal: 10,
+      backgroundColor: '#121212',
     },
     heading: {
       fontWeight: 'bold',
       fontSize: 40,
-      color: '#000',
+      color: '#fff',
       alignSelf: 'center',
       marginBottom: 20,
-      marginTop: 30
+      marginTop: 30,
     },
     text: {
       fontSize: 20,
-      color: '#000',
+      color: '#fff',
     },
     input: {
       height: 40,
       marginBottom: 30,
-      color: '#000',
-      borderBottomColor: '#000',
+      color: '#fff',
+      borderBottomColor: '#fff',
       borderBottomWidth: 1,
     },
     btnImg: {
@@ -131,8 +133,8 @@ const styles = StyleSheet.create(
     btn: {
       alignItems: 'center',
       marginTop: 10,
-      backgroundColor: '#000',
-      padding: 10,
+      backgroundColor: '#3700B3',
+      padding: 20,
       borderRadius: 5,
     },
     btnText: {

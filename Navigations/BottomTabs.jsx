@@ -9,7 +9,7 @@ export default function BottomTabs() {
   return (
     <Tab.Navigator screenOptions={{
       headerShown: false,
-      tabBarStyle: { height: 60, paddingBottom: 5, paddingTop: 5},
+      tabBarStyle: { height: 60, paddingBottom: 5, paddingTop: 5, backgroundColor: '#121212', borderTopColor: '#1e1e1e'},
       tabBarLabelStyle: { fontSize: 14}
     }}>
       <Tab.Screen name="home" component={Cadastro} options={{
