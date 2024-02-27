@@ -9,7 +9,7 @@ const Cadastro = () => {
   const [nome, setNome] = useState('');
   const [endereco, setEndereco] = useState('');
   const [contato, setContato] = useState('');
-  const [produto, setProduto] = useState('');
+  const [categoria, setCategoria] = useState('');
   const [dadosCadastro, setDadosCadastro] = useState([]);
   const [imagem, setImagem] = useState('');
   const navigation = useNavigation();
@@ -21,22 +21,22 @@ const Cadastro = () => {
       },
     };
     launchImageLibrary(options, (response) => {
-      if (response.assets[0].uri) {
+      if (response.assets && response.assets[0].uri) {
         setImagem(response.assets[0].uri);
       }
     });
   };
 
   const handleCadastrar = () => {
-    if (nome !== '' && endereco !== '' && contato !== '' && produto !== '' && imagem !== '') {
-      const novoCadastro = { nome, endereco, contato, produto, imagem };
+    if (nome !== '' && endereco !== '' && contato !== '' && categoria !== '' && imagem !== '') {
+      const novoCadastro = { nome, endereco, contato, categoria, imagem };
       const novosDadosCadastro = [...dadosCadastro, novoCadastro];
       setDadosCadastro(novosDadosCadastro);
-      navigation.navigate('produtos', { dadosCadastro: novosDadosCadastro });
+      navigation.navigate('fornecedores', { dadosCadastro: novosDadosCadastro });
       setNome('');
       setEndereco('');
       setContato('');
-      setProduto('');
+      setCategoria('');
       setImagem('');
 
     } else {
@@ -78,10 +78,10 @@ const Cadastro = () => {
       <TextInput
         inputMode='text'
         style={styles.input}
-        placeholder="Digite o produto"
+        placeholder="Digite a categoria"
         placeholderTextColor="gray"
-        onChangeText={setProduto}
-        value={produto}
+        onChangeText={setCategoria}
+        value={categoria}
       />
 
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
