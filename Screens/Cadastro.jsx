@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
-import  {launchImageLibrary}  from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 
 
@@ -21,7 +21,7 @@ const Cadastro = () => {
       },
     };
     launchImageLibrary(options, (response) => {
-      if(response.assets[0].uri){
+      if (response.assets[0].uri) {
         setImagem(response.assets[0].uri);
       }
     });
@@ -47,6 +47,7 @@ const Cadastro = () => {
     <View style={styles.container}>
       <Text style={styles.heading}>Cadastro</Text>
       <TextInput
+        inputMode='text'
         style={styles.input}
         placeholder="Digite o nome"
         placeholderTextColor="gray"
@@ -55,6 +56,7 @@ const Cadastro = () => {
       />
 
       <TextInput
+        inputMode='text'
         style={styles.input}
         placeholder="Digite o endereço"
         placeholderTextColor="gray"
@@ -63,6 +65,8 @@ const Cadastro = () => {
       />
 
       <TextInput
+        inputMode='tel'
+        maxLength={13}
         style={styles.input}
         placeholder="Digite o contato"
         placeholderTextColor="gray"
@@ -72,6 +76,7 @@ const Cadastro = () => {
 
 
       <TextInput
+        inputMode='text'
         style={styles.input}
         placeholder="Digite o produto"
         placeholderTextColor="gray"
@@ -80,9 +85,11 @@ const Cadastro = () => {
       />
 
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
-        <Text style={styles.btnText}>Escolha uma imagem</Text>
-      {/* {imagem && <Image source={{ uri: imagem }} style={{ width: 200, height: 200 }} />} */}
-      {imagem ? <Text style={styles.text}>Imagem selecionada ✔️</Text> : null}
+        <Text style={styles.btnText}>Escolha sua foto</Text>
+        {imagem && <Image source={{ uri: imagem }} style={{
+          width: 30, height: 30
+        }} />}
+        {/* {imagem ? <Text style={styles.text}>Imagem selecionada ✔️</Text> : null} */}
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -99,24 +106,26 @@ export default Cadastro;
 
 const styles = StyleSheet.create(
   {
-    container:{
+    container: {
       flex: 1,
       paddingHorizontal: 10,
       backgroundColor: '#121212',
     },
     heading: {
-      fontWeight: 'bold',
-      fontSize: 40,
+      fontFamily: 'Anta-Regular',
+      fontSize: 50,
       color: '#fff',
       alignSelf: 'center',
       marginBottom: 20,
       marginTop: 30,
     },
     text: {
+      fontFamily: 'Anta-Regular',
       fontSize: 20,
       color: '#fff',
     },
     input: {
+      fontFamily: 'Anta-Regular',
       height: 40,
       marginBottom: 30,
       color: '#fff',
@@ -126,18 +135,23 @@ const styles = StyleSheet.create(
     btnImg: {
       alignItems: 'center',
       marginTop: 10,
-      backgroundColor: 'green',
+      backgroundColor: 'rgba(18, 18, 18, 0.8)',
+      borderColor: '#fff',
+      borderWidth: 1,
       padding: 10,
       borderRadius: 5,
+      flexDirection: 'row',
+      justifyContent: 'center',
     },
     btn: {
       alignItems: 'center',
-      marginTop: 10,
+      marginTop: 50,
       backgroundColor: '#3700B3',
       padding: 20,
       borderRadius: 5,
     },
     btnText: {
+      fontFamily: 'Anta-Regular',
       color: '#fff',
       fontSize: 20,
     },

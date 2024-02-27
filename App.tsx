@@ -10,7 +10,7 @@ function App(): React.JSX.Element {
     <View style={styles.container}>
       <StatusBar
         animated={true}
-        backgroundColor="#61dafb"
+        backgroundColor="#121212"
       />
       <NavigationContainer>
         <BottomTabs />
@@ -23,7 +23,6 @@ const styles = StyleSheet.create(
   {
     container: {
       flex: 1,
-      fontFamily: "Anta-Regular"
     }
   }
 );

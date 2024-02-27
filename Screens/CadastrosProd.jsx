@@ -21,10 +21,10 @@ const CadastrosProd = ({ route }) => {
           <View style={styles.card}>
             <Image source={{ uri: item.imagem }} style={styles.image} />
             <View style={styles.textContainer}>
-              <Text style={{ color: 'gray', fontSize: 13 }}>{`${item.contato}`}</Text>
+              <Text style={{ fontFamily: 'Anta-Regular', color: 'gray', fontSize: 13 }}>{`${item.contato}`}</Text>
               <Text style={styles.cardText}>{`${item.nome}`}</Text>
-              <Text style={{ color: 'gray', fontSize: 14 }}>{`${item.produto}`}</Text>
-              <Text style={{ color: 'lightgray', fontSize: 16 }}>{`${item.endereco}`}</Text>
+              <Text style={{fontFamily: 'Anta-Regular', color: 'gray', fontSize: 14 }}>{`${item.produto}`}</Text>
+              <Text style={{fontFamily: 'Anta-Regular', color: 'lightgray', fontSize: 16 }}>{`${item.endereco}`}</Text>
             </View>
           </View>
         )}
@@ -38,10 +38,10 @@ export default CadastrosProd;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-
   },
   heading: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily: 'Anta-Regular',
     fontSize: 40,
     color: '#fff',
     alignSelf: 'center',
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardText: {
+    fontFamily: 'Anta-Regular',
     fontSize: 25,
     color: '#fff',
   },
