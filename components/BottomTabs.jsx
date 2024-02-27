@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Cadastro from '../Screens/Cadastro';
-import CadastrosProd from '../Screens/CadastrosProd';
+import Cadastro from '../screens/Cadastro';
+import ListaFornecedores from '../screens/ListaFornecedores';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -17,7 +17,7 @@ export default function BottomTabs() {
           <Icon name="home" color={color} size={size} />
         ),
       }} />
-      <Tab.Screen name="produtos" component={CadastrosProd} options={{
+      <Tab.Screen name="fornecedores" component={ListaFornecedores} options={{
         tabBarIcon: ({ color, size }) => (
           <Icon name="list" color={color} size={size} />
         ),

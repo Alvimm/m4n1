@@ -1,5 +1,5 @@
 import { StyleSheet, View, StatusBar } from 'react-native';
-import BottomTabs from './Navigations/BottomTabs';
+import BottomTabs from './components/BottomTabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
 
