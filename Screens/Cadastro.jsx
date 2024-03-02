@@ -45,12 +45,13 @@ const Cadastro = () => {
   };
   return (
     <View style={styles.container}>
+      <Image source={require('../src/assets/logo.png')} style={{ width: 200, height: 200, alignSelf: 'center', marginTop: 10 }} />
       <Text style={styles.heading}>Cadastro</Text>
       <TextInput
         inputMode='text'
         style={styles.input}
         placeholder="Digite o nome"
-        placeholderTextColor="gray"
+        placeholderTextColor="#0D6368"
         onChangeText={setNome}
         value={nome}
       />
@@ -59,7 +60,7 @@ const Cadastro = () => {
         inputMode='text'
         style={styles.input}
         placeholder="Digite o endereço"
-        placeholderTextColor="gray"
+        placeholderTextColor="#0D6368"
         onChangeText={setEndereco}
         value={endereco}
       />
@@ -69,7 +70,7 @@ const Cadastro = () => {
         maxLength={13}
         style={styles.input}
         placeholder="Digite o contato"
-        placeholderTextColor="gray"
+        placeholderTextColor="#0D6368"
         onChangeText={setContato}
         value={contato}
       />
@@ -79,7 +80,7 @@ const Cadastro = () => {
         inputMode='text'
         style={styles.input}
         placeholder="Digite a categoria"
-        placeholderTextColor="gray"
+        placeholderTextColor="#0D6368"
         onChangeText={setCategoria}
         value={categoria}
       />
@@ -87,7 +88,7 @@ const Cadastro = () => {
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
         <Text style={styles.btnText}>Escolha sua foto</Text>
         {imagem && <Image source={{ uri: imagem }} style={{
-          width: 30, height: 30
+          width: 30, height: 30, borderColor: '#FF5474', borderWidth: 2, borderRadius: 5, marginLeft: 10,
         }} />}
         {/* {imagem ? <Text style={styles.text}>Imagem selecionada ✔️</Text> : null} */}
       </TouchableOpacity>
@@ -109,12 +110,12 @@ const styles = StyleSheet.create(
     container: {
       flex: 1,
       paddingHorizontal: 10,
-      backgroundColor: '#121212',
+      backgroundColor: '#2ADBE5',
     },
     heading: {
       fontFamily: 'Anta-Regular',
       fontSize: 50,
-      color: '#fff',
+      color: '#000',
       alignSelf: 'center',
       marginBottom: 20,
       marginTop: 30,
@@ -122,21 +123,21 @@ const styles = StyleSheet.create(
     text: {
       fontFamily: 'Anta-Regular',
       fontSize: 20,
-      color: '#fff',
+      color: '#000',
     },
     input: {
       fontFamily: 'Anta-Regular',
       height: 40,
       marginBottom: 30,
-      color: '#fff',
-      borderBottomColor: '#fff',
+      color: '#000',
+      borderBottomColor: '#0D6368',
       borderBottomWidth: 1,
     },
     btnImg: {
       alignItems: 'center',
       marginTop: 10,
-      backgroundColor: 'rgba(18, 18, 18, 0.8)',
-      borderColor: '#fff',
+      backgroundColor: '#3CF3FB',
+      borderColor: '#000',
       borderWidth: 1,
       padding: 10,
       borderRadius: 5,
@@ -146,13 +147,15 @@ const styles = StyleSheet.create(
     btn: {
       alignItems: 'center',
       marginTop: 50,
-      backgroundColor: '#3700B3',
+      backgroundColor: '#FF5474',
       padding: 20,
       borderRadius: 5,
+      borderColor: '#000',
+      borderWidth: 1,
     },
     btnText: {
       fontFamily: 'Anta-Regular',
-      color: '#fff',
-      fontSize: 20,
+      color: '#000',
+      fontSize: 22,
     },
   });

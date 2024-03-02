@@ -12,18 +12,18 @@ const SearchBar = ({ search, setSearch }) => {
 
   return (
     <View style={styles.searchInput}>
-      <Icon name="search" color={'#fff'} size={20} style={{paddingLeft:15, marginRight:10}}/>
+      <Icon name="search" color={'#0D6368'} size={20} style={{paddingLeft:15, marginRight:10}}/>
       <TextInput
         inputMode='search'
-        style={{fontSize:15, width: '82%'}}
+        style={{fontSize:15, width: '82%', color: '#000', fontFamily: 'Anta-Regular'}}
         placeholder="Procurar fornecedor..."
-        placeholderTextColor="gray"
+        placeholderTextColor='#0D6368'
         onChangeText={handleSearch}
         value={search}
       />
       {isSearchActive && (
         <TouchableOpacity onPress={() => {setSearch(''); setIsSearchActive(false);}}>
-          <Icon name="close" color={'#fff'} size={20} />
+          <Icon name="close" color={'#0D6368'} size={20} />
         </TouchableOpacity>
       )}
       
@@ -35,7 +35,7 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
   searchInput:{
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#3CF3FB',
     borderRadius: 10,
     margin: 10,
     fontFamily: 'Anta-Regular',

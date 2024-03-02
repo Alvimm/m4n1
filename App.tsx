@@ -10,7 +10,7 @@ function App(): React.JSX.Element {
     <View style={styles.container}>
       <StatusBar
         animated={true}
-        backgroundColor="#121212"
+        backgroundColor="#2ADBE5"
       />
       <NavigationContainer>
         <BottomTabs />

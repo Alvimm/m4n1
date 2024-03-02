@@ -22,7 +22,7 @@ const ListaFornecedores = ({ route}) => {
   }, [dadosCadastro, search]);
 
   return (
-    <View style={{ flex: 1, backgroundColor:'#121212' }}>
+    <View style={{ flex: 1, backgroundColor:'#2ADBE5' }}>
       <Text style={styles.heading}>Fornecedores</Text>
       <SearchBar search={search} setSearch={setSearch} />
 
@@ -36,10 +36,10 @@ const ListaFornecedores = ({ route}) => {
             <View style={styles.card}>
               <Image source={{ uri: item.imagem }} style={styles.image} />
               <View style={styles.textContainer}>
-                <Text style={{ fontFamily: 'Anta-Regular', color: 'gray', fontSize: 13 }}>{`${item.contato}`}</Text>
+                <Text style={{ fontFamily: 'Anta-Regular', color: '#0D6368', fontSize: 13 }}>{`${item.contato}`}</Text>
                 <Text style={styles.cardText}>{`${item.nome}`}</Text>
-                <Text style={{fontFamily: 'Anta-Regular', color: 'gray', fontSize: 14 }}>{`${item.categoria}`}</Text>
-                <Text style={{fontFamily: 'Anta-Regular', color: 'lightgray', fontSize: 16 }}>{`${item.endereco}`}</Text>
+                <Text style={{fontFamily: 'Anta-Regular', color: '#0D6368', fontSize: 14 }}>{`${item.categoria}`}</Text>
+                <Text style={{fontFamily: 'Anta-Regular', color: 'gray', fontSize: 16 }}>{`${item.endereco}`}</Text>
               </View>
             </View>
           )
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   heading: {
     fontFamily: 'Anta-Regular',
     fontSize: 50,
-    color: '#fff',
+    color: '#000',
     alignSelf: 'center',
     marginBottom: 20,
     marginTop: 30
@@ -67,14 +67,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 10,
     padding: 10,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#3CF3FB',
     borderRadius: 10,
     alignItems: 'center',
   },
   cardText: {
     fontFamily: 'Anta-Regular',
     fontSize: 25,
-    color: '#fff',
+    color: '#000',
   },
    textContainer:{
     marginLeft: 15,
