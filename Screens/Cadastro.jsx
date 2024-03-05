@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
-
+import { StyleSheet, Text, TextInput, TouchableOpacity, Image, ToastAndroid, View, ScrollView, Alert } from 'react-native';
+import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Cadastro = () => {
@@ -14,17 +14,67 @@ const Cadastro = () => {
   const [imagem, setImagem] = useState('');
   const navigation = useNavigation();
 
+  const showToast = () => {
+    ToastAndroid.showWithGravityAndOffset(
+      'Preencha todos os campos',
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM,
+      25,
+      50
+    );
+  }
+
+  // const ImagePicker = () => {
+  //   let options = {
+  //     storageOptions: {
+  //       path: 'image',
+  //     },
+  //   };
+  //   launchImageLibrary(options, (response) => {
+  //     if (response.assets && response.assets[0].uri) {
+  //       setImagem(response.assets[0].uri);
+  //     }
+  //   });
+  //   launchCamera(options, (response) => {
+  //     if (response.assets && response.assets[0].uri) {
+  //       setImagem(response.assets[0].uri);
+  //     }
+  //   });
+  // };
   const ImagePicker = () => {
     let options = {
       storageOptions: {
         path: 'image',
       },
     };
-    launchImageLibrary(options, (response) => {
-      if (response.assets && response.assets[0].uri) {
-        setImagem(response.assets[0].uri);
-      }
-    });
+  
+    Alert.alert(
+      'Escolha uma opção',
+      'Deseja abrir a câmera ou a biblioteca de imagens?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {
+          text: 'Abrir câmera',
+          onPress: () => launchCamera(options, (response) => {
+            if (response.assets && response.assets[0].uri) {
+              setImagem(response.assets[0].uri);
+            }
+          }),
+        },
+        {
+          text: 'Abrir biblioteca de imagens',
+          onPress: () => launchImageLibrary(options, (response) => {
+            if (response.assets && response.assets[0].uri) {
+              setImagem(response.assets[0].uri);
+            }
+          }),
+        },
+      ],
+      { cancelable: true },
+    );
   };
 
   const handleCadastrar = () => {
@@ -39,14 +89,15 @@ const Cadastro = () => {
       setCategoria('');
       setImagem('');
 
+
+
     } else {
-      alert('Preencha todos os campos obrigatórios');
+      showToast();
     }
   };
   return (
-    <View style={styles.container}>
-      <Image source={require('../src/assets/logo.png')} style={{ width: 200, height: 200, alignSelf: 'center', marginTop: 10 }} />
-      <Text style={styles.heading}>Cadastro</Text>
+    <ScrollView style={styles.container}>
+      <Image source={require('../src/assets/logo.png')} style={styles.logo} />
       <TextInput
         inputMode='text'
         style={styles.input}
@@ -87,10 +138,23 @@ const Cadastro = () => {
 
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
         <Text style={styles.btnText}>Escolha sua foto</Text>
-        {imagem && <Image source={{ uri: imagem }} style={{
-          width: 30, height: 30, borderColor: '#FF5474', borderWidth: 2, borderRadius: 5, marginLeft: 10,
-        }} />}
-        {/* {imagem ? <Text style={styles.text}>Imagem selecionada ✔️</Text> : null} */}
+        {imagem && (
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Image
+              source={{ uri: imagem }}
+              style={{
+                width: 30,
+                height: 30,
+                borderColor: 'green',
+                borderWidth: 2,
+                borderRadius: 5,
+                marginLeft: 10,
+                marginRight: 2,
+              }}
+            />
+            <Icon name="checkmark-circle" color={'green'} size={20} />
+          </View>
+        )}
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -99,7 +163,7 @@ const Cadastro = () => {
           handleCadastrar();
         }}
       ><Text style={styles.btnText}>Cadastrar</Text></TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -108,17 +172,9 @@ export default Cadastro;
 const styles = StyleSheet.create(
   {
     container: {
-      flex: 1,
-      paddingHorizontal: 10,
-      backgroundColor: '#2ADBE5',
-    },
-    heading: {
-      fontFamily: 'Anta-Regular',
-      fontSize: 50,
-      color: '#000',
-      alignSelf: 'center',
-      marginBottom: 20,
-      marginTop: 30,
+      paddingHorizontal: 20,
+      backgroundColor: '#3bf6ff',
+      paddingVertical: 20,
     },
     text: {
       fontFamily: 'Anta-Regular',
@@ -133,10 +189,17 @@ const styles = StyleSheet.create(
       borderBottomColor: '#0D6368',
       borderBottomWidth: 1,
     },
+    logo: {
+      width: 200, 
+      height: 200, 
+      alignSelf: 'center', 
+      marginTop: 30, 
+      marginBottom: 10
+    },
     btnImg: {
       alignItems: 'center',
       marginTop: 10,
-      backgroundColor: '#3CF3FB',
+      backgroundColor: '#2ADBE5',
       borderColor: '#000',
       borderWidth: 1,
       padding: 10,
@@ -146,12 +209,13 @@ const styles = StyleSheet.create(
     },
     btn: {
       alignItems: 'center',
-      marginTop: 50,
+      marginTop: 30,
       backgroundColor: '#FF5474',
       padding: 20,
       borderRadius: 5,
       borderColor: '#000',
       borderWidth: 1,
+      marginBottom: 30,
     },
     btnText: {
       fontFamily: 'Anta-Regular',
