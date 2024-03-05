@@ -9,8 +9,9 @@ const Tab = createBottomTabNavigator();
 export default function BottomTabs() {
   return (
     <Tab.Navigator screenOptions={{
+      tabBarHideOnKeyboard: true,
       headerShown: false,
-      tabBarStyle: { height: 60, paddingBottom: 5, paddingTop: 5, backgroundColor: '#3CF3FB', borderTopColor: '#0D6368'}
+      tabBarStyle: { height: 60, paddingBottom: 5, paddingTop: 5, backgroundColor: '#3bf6ff', borderTopColor: '#2ADBE5'}
     }}>
       <Tab.Screen name="home" component={Cadastro} options={{
          tabBarLabel: ({ focused }) => (

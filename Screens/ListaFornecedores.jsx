@@ -2,7 +2,7 @@ import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import React, { useState, useEffect, useMemo } from 'react';
 import SearchBar from '../components/SearchBar';
 
-const ListaFornecedores = ({ route}) => {
+const ListaFornecedores = ({ route }) => {
   const [dadosCadastro, setDadosCadastro] = useState(route.params ? route.params.dadosCadastro : []);
   const [search, setSearch] = useState('');
 
@@ -14,20 +14,16 @@ const ListaFornecedores = ({ route}) => {
     if (!search) return dadosCadastro;
     return dadosCadastro.filter((item) => {
       return (
-        item.nome.toLowerCase().includes(search.toLowerCase()) ||
-        item.categoria.toLowerCase().includes(search.toLowerCase()) ||
-        item.endereco.toLowerCase().includes(search.toLowerCase())
+        item.nome.toLowerCase().includes(search.toLowerCase())
       );
     });
   }, [dadosCadastro, search]);
 
   return (
-    <View style={{ flex: 1, backgroundColor:'#2ADBE5' }}>
-      <Text style={styles.heading}>Fornecedores</Text>
+    <View style={styles.container}>
       <SearchBar search={search} setSearch={setSearch} />
-
       <FlatList
-        style={styles.container}
+        style={styles.listContainer}
         showsVerticalScrollIndicator={false}
         data={filteredData}
         keyExtractor={(item, index) => index.toString()}
@@ -38,8 +34,8 @@ const ListaFornecedores = ({ route}) => {
               <View style={styles.textContainer}>
                 <Text style={{ fontFamily: 'Anta-Regular', color: '#0D6368', fontSize: 13 }}>{`${item.contato}`}</Text>
                 <Text style={styles.cardText}>{`${item.nome}`}</Text>
-                <Text style={{fontFamily: 'Anta-Regular', color: '#0D6368', fontSize: 14 }}>{`${item.categoria}`}</Text>
-                <Text style={{fontFamily: 'Anta-Regular', color: 'gray', fontSize: 16 }}>{`${item.endereco}`}</Text>
+                <Text style={styles.categoryText}>{`${item.categoria}`}</Text>
+                <Text style={{ fontFamily: 'Anta-Regular', color: 'gray', fontSize: 16 }}>{`${item.endereco}`}</Text>
               </View>
             </View>
           )
@@ -52,35 +48,43 @@ const ListaFornecedores = ({ route}) => {
 export default ListaFornecedores;
 
 const styles = StyleSheet.create({
-  container: {
+  container: { flex: 1, 
+    backgroundColor: '#3bf6ff',
+    paddingTop: 10,
+    paddingHorizontal:10
+   },
+  listContainer: {
     padding: 10,
-  },
-  heading: {
-    fontFamily: 'Anta-Regular',
-    fontSize: 50,
-    color: '#000',
-    alignSelf: 'center',
-    marginBottom: 20,
-    marginTop: 30
   },
   card: {
     flexDirection: 'row',
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#3CF3FB',
+    marginVertical: 10,
+    // padding: 10,
+    backgroundColor: '#2ADBE5',
     borderRadius: 10,
     alignItems: 'center',
   },
   cardText: {
     fontFamily: 'Anta-Regular',
-    fontSize: 25,
+    fontSize: 30,
     color: '#000',
   },
-   textContainer:{
+  categoryText: {
+    fontFamily: 'Anta-Regular',
+    color: '#fff',
+    fontSize: 20,
+    backgroundColor: '#FF547480',
+    borderRadius: 5,
+    padding: 4,
+    alignSelf: 'flex-start',
+  },
+  textContainer: {
     marginLeft: 15,
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 15,
-  }});
+    width: 150,
+    height: 150,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+  }
+});
