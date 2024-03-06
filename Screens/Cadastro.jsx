@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, Image, ToastAndroid, View, ScrollView, Alert } from 'react-native';
 import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { CustomTextInput } from '../components/CustomTextInput';
 
 
 const Cadastro = () => {
@@ -23,31 +24,13 @@ const Cadastro = () => {
       50
     );
   }
-
-  // const ImagePicker = () => {
-  //   let options = {
-  //     storageOptions: {
-  //       path: 'image',
-  //     },
-  //   };
-  //   launchImageLibrary(options, (response) => {
-  //     if (response.assets && response.assets[0].uri) {
-  //       setImagem(response.assets[0].uri);
-  //     }
-  //   });
-  //   launchCamera(options, (response) => {
-  //     if (response.assets && response.assets[0].uri) {
-  //       setImagem(response.assets[0].uri);
-  //     }
-  //   });
-  // };
   const ImagePicker = () => {
     let options = {
       storageOptions: {
         path: 'image',
       },
     };
-  
+
     Alert.alert(
       'Escolha uma opção',
       'Deseja abrir a câmera ou a biblioteca de imagens?',
@@ -88,9 +71,6 @@ const Cadastro = () => {
       setContato('');
       setCategoria('');
       setImagem('');
-
-
-
     } else {
       showToast();
     }
@@ -98,43 +78,10 @@ const Cadastro = () => {
   return (
     <ScrollView style={styles.container}>
       <Image source={require('../src/assets/logo.png')} style={styles.logo} />
-      <TextInput
-        inputMode='text'
-        style={styles.input}
-        placeholder="Digite o nome"
-        placeholderTextColor="#0D6368"
-        onChangeText={setNome}
-        value={nome}
-      />
-
-      <TextInput
-        inputMode='text'
-        style={styles.input}
-        placeholder="Digite o endereço"
-        placeholderTextColor="#0D6368"
-        onChangeText={setEndereco}
-        value={endereco}
-      />
-
-      <TextInput
-        inputMode='tel'
-        maxLength={13}
-        style={styles.input}
-        placeholder="Digite o contato"
-        placeholderTextColor="#0D6368"
-        onChangeText={setContato}
-        value={contato}
-      />
-
-
-      <TextInput
-        inputMode='text'
-        style={styles.input}
-        placeholder="Digite a categoria"
-        placeholderTextColor="#0D6368"
-        onChangeText={setCategoria}
-        value={categoria}
-      />
+      <CustomTextInput placeholder="Digite o nome" onChangeText={setNome} value={nome} />
+      <CustomTextInput placeholder="Digite o endereço" onChangeText={setEndereco} value={endereco} />
+      <CustomTextInput placeholder="Digite o contato" onChangeText={setContato} value={contato} inputMode='tel' maxLength={13} />
+      <CustomTextInput placeholder="Digite a categoria" onChangeText={setCategoria} value={categoria} />
 
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
         <Text style={styles.btnText}>Escolha sua foto</Text>
@@ -142,15 +89,7 @@ const Cadastro = () => {
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Image
               source={{ uri: imagem }}
-              style={{
-                width: 30,
-                height: 30,
-                borderColor: 'green',
-                borderWidth: 2,
-                borderRadius: 5,
-                marginLeft: 10,
-                marginRight: 2,
-              }}
+              style={styles.selectedImg}
             />
             <Icon name="checkmark-circle" color={'green'} size={20} />
           </View>
@@ -181,19 +120,11 @@ const styles = StyleSheet.create(
       fontSize: 20,
       color: '#000',
     },
-    input: {
-      fontFamily: 'Anta-Regular',
-      height: 40,
-      marginBottom: 30,
-      color: '#000',
-      borderBottomColor: '#0D6368',
-      borderBottomWidth: 1,
-    },
     logo: {
-      width: 200, 
-      height: 200, 
-      alignSelf: 'center', 
-      marginTop: 30, 
+      width: 200,
+      height: 200,
+      alignSelf: 'center',
+      marginTop: 30,
       marginBottom: 10
     },
     btnImg: {
@@ -222,4 +153,13 @@ const styles = StyleSheet.create(
       color: '#000',
       fontSize: 22,
     },
+    selectedImg:{
+      width: 30,
+      height: 30,
+      borderColor: 'green',
+      borderWidth: 2,
+      borderRadius: 5,
+      marginLeft: 10,
+      marginRight: 2
+    }
   });
