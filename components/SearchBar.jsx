@@ -12,12 +12,12 @@ const SearchBar = ({ search, setSearch }) => {
   }
 
   return (
-    <View style={{flexDirection:'row', alignItems:'center'}}>
-      <View style={styles.searchInput}>
+    <View style={styles.container}>
+      <View style={styles.searchBar}>
         <Icon name="search" color={'#0D6368'} size={20} style={{ paddingLeft: 15, marginRight: 10 }} />
         <TextInput
           inputMode='search'
-          style={{ fontSize: 15, width:'80%', color: '#000', fontFamily: 'Anta-Regular'}}
+          style={styles.searchInput}
           placeholder="Procurar fornecedor..."
           placeholderTextColor='#0D6368'
           onChangeText={handleSearch}
@@ -37,12 +37,21 @@ const SearchBar = ({ search, setSearch }) => {
 export default SearchBar;
 
 const styles = StyleSheet.create({
-  searchInput: {
+  container:{
+    flexDirection:'row', 
+    alignItems:'center'},
+  searchBar: {
     backgroundColor: '#2ADBE5',
     borderRadius: 10,
     margin: 10,
     fontFamily: 'Anta-Regular',
     flexDirection: 'row',
-    alignItems: 'center', width:'84%' 
-  }
+    alignItems: 'center', 
+    width:'84%' 
+  },
+  searchInput:{ 
+    fontSize: 15, 
+    width:'80%', 
+    color: '#000', 
+    fontFamily: 'Anta-Regular'}
 });
