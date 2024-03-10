@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, View, ScrollView, Alert } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, View, Alert, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import  CustomTextInput  from '../components/CustomTextInput';
-
+import CategoryPicker from '../components/CategoryPicker';
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
@@ -61,7 +61,9 @@ const Cadastro = () => {
   };
 
   const handleCadastrar = () => {
-    if (nome !== '' && endereco !== '' && contato !== '' && categoria !== '' && imagem !== '') {
+    console.log("Valores:", nome, endereco, contato, categoria, imagem);
+    
+    if (nome !== '' && endereco !== '' && contato !== '' && categoria !=='' && imagem !== '') {
       const novoCadastro = { nome, endereco, contato, categoria, imagem };
       const novosDadosCadastro = [...dadosCadastro, novoCadastro];
       setDadosCadastro(novosDadosCadastro);
@@ -71,17 +73,20 @@ const Cadastro = () => {
       setContato('');
       setCategoria('');
       setImagem('');
+      
     } else {
       showToast();
     }
   };
+
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}
+      >
       <Image source={require('../assets/logo.png')} style={styles.logo} />
       <CustomTextInput placeholder="Digite o nome" onChangeText={setNome} value={nome}/>
       <CustomTextInput placeholder="Digite o endereço" onChangeText={setEndereco} value={endereco} />
       <CustomTextInput placeholder="Digite o contato" onChangeText={setContato} value={contato} inputMode='tel' maxLength={13} />
-      <CustomTextInput placeholder="Digite a categoria" onChangeText={setCategoria} value={categoria} />
+      <CategoryPicker selectedCategory={categoria} onValueChange={setCategoria} />
 
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
         <Text style={styles.btnText}>Escolha sua foto</Text>
@@ -90,7 +95,7 @@ const Cadastro = () => {
             <Image
               source={{ uri: imagem }}
               style={styles.selectedImg}
-            />
+              />
             <Icon name="checkmark-circle" color={'green'} size={20} />
           </View>
         )}
@@ -101,8 +106,8 @@ const Cadastro = () => {
         onPress={() => {
           handleCadastrar();
         }}
-      ><Text style={styles.btnText}>Cadastrar</Text></TouchableOpacity>
-    </ScrollView>
+        ><Text style={styles.btnText}>Cadastrar</Text></TouchableOpacity>
+    </View>
   );
 };
 
@@ -111,6 +116,7 @@ export default Cadastro;
 const styles = StyleSheet.create(
   {
     container: {
+      display: 'flex',
       paddingHorizontal: 20,
       backgroundColor: '#fa4b77',
       paddingVertical: 50,
