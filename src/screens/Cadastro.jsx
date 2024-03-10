@@ -33,7 +33,7 @@ const Cadastro = () => {
 
     Alert.alert(
       'Escolha uma opção',
-      'Deseja abrir a câmera ou a biblioteca de imagens?',
+      'Deseja abrir a câmera ou a galeria de imagens?',
       [
         {
           text: 'Cancelar',
@@ -48,7 +48,7 @@ const Cadastro = () => {
           }),
         },
         {
-          text: 'Abrir biblioteca de imagens',
+          text: 'Abrir galeria de imagens',
           onPress: () => launchImageLibrary(options, (response) => {
             if (response.assets && response.assets[0].uri) {
               setImagem(response.assets[0].uri);
@@ -60,9 +60,9 @@ const Cadastro = () => {
     );
   };
 
+  const [key, setKey] = useState(Math.random());
+
   const handleCadastrar = () => {
-    console.log("Valores:", nome, endereco, contato, categoria, imagem);
-    
     if (nome !== '' && endereco !== '' && contato !== '' && categoria !=='' && imagem !== '') {
       const novoCadastro = { nome, endereco, contato, categoria, imagem };
       const novosDadosCadastro = [...dadosCadastro, novoCadastro];
@@ -71,7 +71,7 @@ const Cadastro = () => {
       setNome('');
       setEndereco('');
       setContato('');
-      setCategoria('');
+      setKey(Math.random());
       setImagem('');
       
     } else {
@@ -86,7 +86,7 @@ const Cadastro = () => {
       <CustomTextInput placeholder="Digite o nome" onChangeText={setNome} value={nome}/>
       <CustomTextInput placeholder="Digite o endereço" onChangeText={setEndereco} value={endereco} />
       <CustomTextInput placeholder="Digite o contato" onChangeText={setContato} value={contato} inputMode='tel' maxLength={13} />
-      <CategoryPicker selectedCategory={categoria} onValueChange={setCategoria} />
+      <CategoryPicker key={key} selectedCategory={categoria} onValueChange={setCategoria} />
 
       <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
         <Text style={styles.btnText}>Escolha sua foto</Text>
