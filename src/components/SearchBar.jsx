@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Filter from './Filter';
 
 const SearchBar = ({ search, setSearch }) => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -29,7 +28,6 @@ const SearchBar = ({ search, setSearch }) => {
           </TouchableOpacity>
         )}
       </View>
-          <Filter />
     </View>
   )
 };
