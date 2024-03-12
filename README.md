@@ -19,36 +19,36 @@ Native é crucial para estabelecer uma presença sólida no mercado móvel. App 
 
 ## Rodando localmente
 
-Clone o projeto
+### Clone o projeto
 
 ```bash
   git clone https://github.com/Alvimm/m4n1
 ```
 
 
-Entre no diretório do projeto
+### Entre no diretório do projeto
 
 ```bash
   cd m4n1
 ```
 
 
-Instale as dependências
+### Instale as dependências
 
 ```bash
   npm install
 ```
 
 
-Inicie a aplicação
+### Inicie a aplicação
 
-### Para Android
+#### Para Android
 
 ```bash
 npx react-native run-android
 ```
 
-### Para iOS
+#### Para iOS
 
 ```bash
 npx react-native run-ios
@@ -59,9 +59,9 @@ npx react-native run-ios
 ## Screenshots
 
 <div style="display: flex; justify-content: center;">
-  <img src="./src/assets/images/home.jpg" width="300" height="600" style="margin-right: 10px"/>
-  <img src="./src/assets/images/fornecedores.jpg" width="300" height="600" style="margin-right: 10px"/>
-  <img src="./src/assets/images/filtro.jpg" width="300" height="600"/>
+  <img src="./src/assets/images/home.jpg" width="250" height="450" style="margin-right: 10px"/>
+  <img src="./src/assets/images/fornecedores.jpg" width="250" height="450" style="margin-right: 10px"/>
+  <img src="./src/assets/images/filtro.jpg" width="250" height="450"/>
 </div> 
 
 
