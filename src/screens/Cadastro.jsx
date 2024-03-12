@@ -1,10 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, View, Alert, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, View } from 'react-native';
 import  CustomTextInput  from '../components/CustomTextInput';
 import CategoryPicker from '../components/CategoryPicker';
+import ImagePicker from '../components/ImagePicker';
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
@@ -24,42 +23,6 @@ const Cadastro = () => {
       50
     );
   }
-  const ImagePicker = () => {
-    let options = {
-      storageOptions: {
-        path: 'image',
-      },
-    };
-
-    Alert.alert(
-      'Escolha uma opção',
-      'Deseja abrir a câmera ou a galeria de imagens?',
-      [
-        {
-          text: 'Cancelar',
-          style: 'cancel',
-        },
-        {
-          text: 'Abrir câmera',
-          onPress: () => launchCamera(options, (response) => {
-            if (response.assets && response.assets[0].uri) {
-              setImagem(response.assets[0].uri);
-            }
-          }),
-        },
-        {
-          text: 'Abrir galeria de imagens',
-          onPress: () => launchImageLibrary(options, (response) => {
-            if (response.assets && response.assets[0].uri) {
-              setImagem(response.assets[0].uri);
-            }
-          }),
-        },
-      ],
-      { cancelable: true },
-    );
-  };
-
   const [key, setKey] = useState(Math.random());
 
   const handleCadastrar = () => {
@@ -87,19 +50,7 @@ const Cadastro = () => {
       <CustomTextInput placeholder="Digite o endereço" onChangeText={setEndereco} value={endereco} />
       <CustomTextInput placeholder="Digite o contato" onChangeText={setContato} value={contato} inputMode='tel' maxLength={13} />
       <CategoryPicker key={key} selectedCategory={categoria} onValueChange={setCategoria} />
-
-      <TouchableOpacity style={styles.btnImg} onPress={ImagePicker} >
-        <Text style={styles.btnText}>Escolha sua foto</Text>
-        {imagem && (
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image
-              source={{ uri: imagem }}
-              style={styles.selectedImg}
-              />
-            <Icon name="checkmark-circle" color={'green'} size={20} />
-          </View>
-        )}
-      </TouchableOpacity>
+      <ImagePicker imagem={imagem} setImagem={setImagem} styles={styles} />
 
       <TouchableOpacity
         style={styles.btn}
