@@ -45,7 +45,7 @@ const Cadastro = () => {
   return (
     <View style={styles.container}
       >
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
+      <Image source={require('../assets/images/logo.png')} style={styles.logo} />
       <CustomTextInput placeholder="Digite o nome" onChangeText={setNome} value={nome}/>
       <CustomTextInput placeholder="Digite o endereço" onChangeText={setEndereco} value={endereco} />
       <CustomTextInput placeholder="Digite o contato" onChangeText={setContato} value={contato} inputMode='tel' maxLength={13} />

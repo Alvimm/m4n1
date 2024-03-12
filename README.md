@@ -1,79 +1,68 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+![Logo](https://imagensfree.com.br/wp-content/uploads/2019/12/logotipo-estacio-horizontal-com-sombra-980x345.jpg)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+# Meeting App
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+A empresa "Meeting" busca criar um aplicativo móvel eficaz para o cadastro de
+fornecedores, com listas e imagens de alta qualidade, economizando recursos e
+proporcionando uma excelente experiência ao usuário. A escolha da tecnologia React
+Native é crucial para estabelecer uma presença sólida no mercado móvel. App criado baseado no que foi pedido na missão prática do nível 1 (RPG0023 - Vamos criar um App) do Mundo 4 no curso de Desenvolvimento Full-Stack da Estácio.
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
+## Stack utilizada
 
-# OR using Yarn
-yarn start
-```
+**Mobile:** React Native
 
-## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Rodando localmente
 
-### For Android
+Clone o projeto
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+  git clone https://github.com/Alvimm/m4n1
 ```
 
-### For iOS
+Entre no diretório do projeto
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+  cd m4n1
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Instale as dependências
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+  npm install
+```
 
-## Step 3: Modifying your App
+Inicie a aplicação
 
-Now that you have successfully run the app, let's modify it.
+### Para Android
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```bash
+npx react-native run-android
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### Para iOS
 
-## Congratulations! :tada:
+```bash
+npx react-native run-ios
+```
 
-You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
+## Screenshots
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+<div align="center">
+  <img src="./src/assets/images/home.jpg" style="margin-right: 10px"/>
+  <img src="./src/assets/images/fornecedores.jpg" style="margin-right: 10px"/>
+  <img src="./src/assets/images/filtro.jpg"/>
+</div> 
 
-# Troubleshooting
+<!-- ![App Screenshot](./src/assets/images/home.jpg)
+![App Screenshot](./src/assets/images/fornecedores.jpg)
+![App Screenshot](./src/assets/images/filtro.jpg) -->
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-# Learn More
+## Autores
 
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [@alvimm](https://www.github.com/Alvimm)
