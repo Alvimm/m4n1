@@ -1,4 +1,4 @@
-<img src="https://imagensfree.com.br/wp-content/uploads/2019/12/logotipo-estacio-horizontal-com-sombra-980x345.jpg" width="980" height="245"/>
+<img src="./src/assets/images/estacio.png" width="980" height="245"/>
 
 
 
