@@ -1,5 +1,5 @@
+<img src="https://imagensfree.com.br/wp-content/uploads/2019/12/logotipo-estacio-horizontal-com-sombra-980x345.jpg" width="980" height="245"/>
 
-![Logo](https://imagensfree.com.br/wp-content/uploads/2019/12/logotipo-estacio-horizontal-com-sombra-980x345.jpg)
 
 
 # Meeting App
@@ -10,9 +10,11 @@ proporcionando uma excelente experiência ao usuário. A escolha da tecnologia R
 Native é crucial para estabelecer uma presença sólida no mercado móvel. App criado baseado no que foi pedido na missão prática do nível 1 (RPG0023 - Vamos criar um App) do Mundo 4 no curso de Desenvolvimento Full-Stack da Estácio.
 
 
+
 ## Stack utilizada
 
 **Mobile:** React Native
+
 
 
 ## Rodando localmente
@@ -23,17 +25,20 @@ Clone o projeto
   git clone https://github.com/Alvimm/m4n1
 ```
 
+
 Entre no diretório do projeto
 
 ```bash
   cd m4n1
 ```
 
+
 Instale as dependências
 
 ```bash
   npm install
 ```
+
 
 Inicie a aplicação
 
@@ -50,19 +55,17 @@ npx react-native run-ios
 ```
 
 
+
 ## Screenshots
 
-<div align="center">
-  <img src="./src/assets/images/home.jpg" style="margin-right: 10px"/>
-  <img src="./src/assets/images/fornecedores.jpg" style="margin-right: 10px"/>
-  <img src="./src/assets/images/filtro.jpg"/>
+<div style="display: flex; justify-content: center;">
+  <img src="./src/assets/images/home.jpg" width="300" height="600" style="margin-right: 10px"/>
+  <img src="./src/assets/images/fornecedores.jpg" width="300" height="600" style="margin-right: 10px"/>
+  <img src="./src/assets/images/filtro.jpg" width="300" height="600"/>
 </div> 
 
-<!-- ![App Screenshot](./src/assets/images/home.jpg)
-![App Screenshot](./src/assets/images/fornecedores.jpg)
-![App Screenshot](./src/assets/images/filtro.jpg) -->
 
 
-## Autores
+## Autor
 
 - [@alvimm](https://www.github.com/Alvimm)
