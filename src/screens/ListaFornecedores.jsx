@@ -50,10 +50,10 @@ const ListaFornecedores = ({ route }) => {
             <View style={styles.card}>
               <Image source={{ uri: item.imagem }} style={styles.image} />
               <View style={styles.textContainer}>
-                <Text style={{ fontFamily: 'Anta-Regular', color: 'gray', fontSize: 13 }}>{`${item.contato}`}</Text>
+                <Text style={{ fontFamily: 'Kanit-Regular', color: 'gray', fontSize: 13 }}>{`${item.contato}`}</Text>
                 <Text style={styles.cardText}>{`${item.nome}`}</Text>
                 <Text style={styles.categoryText}>{`${item.categoria}`}</Text>
-                <Text style={{ fontFamily: 'Anta-Regular', color: 'gray', fontSize: 16 }}>{`${item.endereco}`}</Text>
+                <Text style={{ fontFamily: 'Kanit-Regular', color: 'gray', fontSize: 16 }}>{`${item.endereco}`}</Text>
               </View>
               {/* <TouchableOpacity onPress={() => console.log('deleted')} style={styles.deleteButton}>
               <Icon name="trash" color={'red'} size={30} />
@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardText: {
-    fontFamily: 'Anta-Regular',
+    fontFamily: 'Kanit-Regular',
     fontSize: 30,
     color: Colors.white,
   },
   categoryText: {
-    fontFamily: 'Anta-Regular',
+    fontFamily: 'Kanit-Medium',
     color: Colors.white,
     fontSize: 20,
     backgroundColor: Colors.whiteWithMoreOpacity,

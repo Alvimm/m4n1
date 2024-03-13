@@ -8,7 +8,7 @@ function CustomTextInput({ placeholder, onChangeText, value, inputMode = 'text',
       maxLength={maxLength}
       style={styles.input}
       placeholder={placeholder}
-      placeholderTextColor= {Colors.blackWithMoreOpacity}
+      placeholderTextColor= {Colors.blackWithOpacity}
       onChangeText={onChangeText}
       value={value}
       cursorColor={Colors.blackWithOpacity}
@@ -19,8 +19,9 @@ function CustomTextInput({ placeholder, onChangeText, value, inputMode = 'text',
 const styles = StyleSheet.create(
   {
     input: {
-      fontFamily: 'Anta-Regular',
-      height: 40,
+      fontFamily: 'Kanit-Regular',
+      fontSize:18,
+      height: 50,
       marginBottom: 30,
       color: Colors.black,
       borderBottomColor: Colors.blackWithOpacity,

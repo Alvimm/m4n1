@@ -10,7 +10,7 @@ const CategoryPicker = ({ selectedCategory, onValueChange }) => {
   return (
     <DropDownPicker
       placeholder='Selecione uma categoria'
-      placeholderStyle={{ color: Colors.blackWithMoreOpacity, fontFamily: 'Anta-Regular' }}
+      placeholderStyle={{ color: Colors.blackWithOpacity, fontFamily: 'Kanit-Regular', fontSize:20 }}
       open={open}
       value={value}
       items={items}
@@ -19,11 +19,11 @@ const CategoryPicker = ({ selectedCategory, onValueChange }) => {
       setItems={setItems}
       onSelectItem={item => onValueChange(item.value)}
       containerStyle={{ marginBottom: 30}}
-      labelStyle={{fontFamily: 'Anta-Regular'}}
+      labelStyle={{fontFamily: 'Kanit-Regular', fontSize:20}}
       style={{ backgroundColor: Colors.primary, borderColor: Colors.blackWithOpacity}}
       arrowIconStyle={{ tintColor: Colors.blackWithMoreOpacity}}
       tickIconStyle={{tintColor: Colors.blackWithMoreOpacity}}
-      listParentLabelStyle={{fontFamily: 'Anta-Regular', color: Colors.blackWithOpacity}}
+      listParentLabelStyle={{fontFamily: 'Kanit-Regular', color: Colors.blackWithOpacity, fontSize:20}}
       listParentContainerStyle={{backgroundColor: Colors.primary}}
       dropDownContainerStyle={{borderColor: Colors.blackWithOpacity}}
     />

@@ -1,12 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, ScrollView, LogBox } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, View } from 'react-native';
 import  CustomTextInput  from '../components/CustomTextInput';
 import CategoryPicker from '../components/CategoryPicker';
 import ImagePicker from '../components/ImagePicker';
 import Colors from '../assets/Colors';
-
-LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
@@ -46,7 +44,7 @@ const Cadastro = () => {
   };
 
   return (
-    <ScrollView style={styles.container}
+    <View style={styles.container}
       >
       <Image source={require('../assets/images/logo.png')} style={styles.logo} />
       <CustomTextInput placeholder="Digite o nome" onChangeText={setNome} value={nome}/>
@@ -61,7 +59,7 @@ const Cadastro = () => {
           handleCadastrar();
         }}
         ><Text style={styles.btnText}>Cadastrar</Text></TouchableOpacity>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -75,11 +73,6 @@ const styles = StyleSheet.create(
       backgroundColor: Colors.primary,
       paddingVertical: 50,
     },
-    text: {
-      fontFamily: 'Anta-Regular',
-      fontSize: 20,
-      color: '#000',
-    },
     logo: {
       width: 150,
       height: 150,
@@ -91,7 +84,7 @@ const styles = StyleSheet.create(
       alignItems: 'center',
       marginTop: 10,
       backgroundColor: Colors.tertiary,
-      borderColor: '#000',
+      borderColor: Colors.black,
       borderWidth: 1,
       padding: 10,
       borderRadius: 5,
@@ -104,14 +97,14 @@ const styles = StyleSheet.create(
       backgroundColor: Colors.secondary,
       padding: 20,
       borderRadius: 5,
-      borderColor: '#000',
+      borderColor: Colors.black,
       borderWidth: 1,
       marginBottom: 60,
     },
     btnText: {
-      fontFamily: 'Anta-Regular',
-      color: '#000',
-      fontSize: 22,
+      fontFamily: 'Kanit-Medium',
+      color: Colors.black,
+      fontSize: 24,
     },
     selectedImg:{
       width: 30,

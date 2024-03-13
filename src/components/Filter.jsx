@@ -17,7 +17,7 @@ const Filter = ({ onFilterChange }) => {
       } else {
         newChips = [...prevChips, chip];
       }
-      onFilterChange(newChips); // Chame onFilterChange após atualizar selectedChips
+      onFilterChange(newChips);
       return newChips;
     });
   };
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   modalText: {
     fontSize: 20,
-    fontFamily: 'Anta-Regular',
+    fontFamily: 'Kanit-Regular',
     color: Colors.white,
     marginBottom: 10,
   },
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   }),
   chipText: {
     fontSize: 16,
-    fontFamily: 'Anta-Regular',
+    fontFamily: 'Kanit-Regular',
     color: Colors.white,
   },
   closeIcon: {

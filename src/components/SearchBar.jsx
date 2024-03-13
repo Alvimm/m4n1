@@ -43,15 +43,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.blackWithOpacity,
     borderRadius: 10,
     margin: 10,
-    fontFamily: 'Anta-Regular',
+    fontFamily: 'Kanit-Regular',
     flexDirection: 'row',
     alignItems: 'center', 
     width:'84%' 
   },
   searchInput:{ 
-    fontSize: 15, 
+    fontSize: 18, 
     width:'78%', 
     color: Colors.white, 
-    fontFamily: 'Anta-Regular',
+    fontFamily: 'Kanit-Regular',
   }
 });
