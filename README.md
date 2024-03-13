@@ -59,9 +59,9 @@ npx react-native run-ios
 ## Screenshots
 
 <div style="display: flex; justify-content: center;">
-  <img src="./src/assets/images/home.jpg" width="250" height="450" style="margin-right: 10px"/>
-  <img src="./src/assets/images/fornecedores.jpg" width="250" height="450" style="margin-right: 10px"/>
-  <img src="./src/assets/images/filtro.jpg" width="250" height="450"/>
+  <img src="./src/assets/images/home.jpg" width="240" height="450" style="margin-right: 10px"/>
+  <img src="./src/assets/images/fornecedores.jpg" width="240" height="450" style="margin-right: 10px"/>
+  <img src="./src/assets/images/filtro.jpg" width="240" height="450"/>
 </div> 
 
 

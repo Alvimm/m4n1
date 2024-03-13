@@ -13,11 +13,11 @@ export default function BottomTabs() {
       tabBarHideOnKeyboard: true,
       headerShown: false,
       tabBarStyle: {
-        height: 80,
+        height: 90,
         paddingBottom: 15,
-        paddingTop: 10,
+        paddingTop: 15,
         backgroundColor: Colors.secondary,
-        borderColor: Colors.blackWithMoreOpacity,
+        borderColor: Colors.secondary,
         marginBottom: 10,
         marginHorizontal: 50,
         borderRadius: 50
