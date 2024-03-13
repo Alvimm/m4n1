@@ -3,6 +3,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import SearchBar from '../components/SearchBar';
 // import Icon from 'react-native-vector-icons/Ionicons';
 import Filter from '../components/Filter';
+import Colors from '../assets/Colors';
+
 
 
 
@@ -69,7 +71,7 @@ export default ListaFornecedores;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fa4b77',
+    backgroundColor: Colors.primary,
     paddingTop: 10,
     paddingHorizontal: 10
   },
@@ -79,20 +81,20 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     marginVertical: 10,
-    backgroundColor: '#0008',
+    backgroundColor: Colors.blackSecondary,
     borderRadius: 10,
     alignItems: 'center',
   },
   cardText: {
     fontFamily: 'Anta-Regular',
     fontSize: 30,
-    color: '#fff',
+    color: Colors.white,
   },
   categoryText: {
     fontFamily: 'Anta-Regular',
-    color: '#fff',
+    color: Colors.white,
     fontSize: 20,
-    backgroundColor: '#fff3',
+    backgroundColor: Colors.whiteWithMoreOpacity,
     borderRadius: 5,
     padding: 4,
     alignSelf: 'flex-start',

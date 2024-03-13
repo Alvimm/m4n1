@@ -1,9 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Image, ToastAndroid, ScrollView, LogBox } from 'react-native';
 import  CustomTextInput  from '../components/CustomTextInput';
 import CategoryPicker from '../components/CategoryPicker';
 import ImagePicker from '../components/ImagePicker';
+import Colors from '../assets/Colors';
+
+LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
@@ -43,7 +46,7 @@ const Cadastro = () => {
   };
 
   return (
-    <View style={styles.container}
+    <ScrollView style={styles.container}
       >
       <Image source={require('../assets/images/logo.png')} style={styles.logo} />
       <CustomTextInput placeholder="Digite o nome" onChangeText={setNome} value={nome}/>
@@ -58,7 +61,7 @@ const Cadastro = () => {
           handleCadastrar();
         }}
         ><Text style={styles.btnText}>Cadastrar</Text></TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -67,9 +70,9 @@ export default Cadastro;
 const styles = StyleSheet.create(
   {
     container: {
-      display: 'flex',
+      flex: 1,
       paddingHorizontal: 20,
-      backgroundColor: '#fa4b77',
+      backgroundColor: Colors.primary,
       paddingVertical: 50,
     },
     text: {
@@ -87,7 +90,7 @@ const styles = StyleSheet.create(
     btnImg: {
       alignItems: 'center',
       marginTop: 10,
-      backgroundColor: '#f64c81',
+      backgroundColor: Colors.tertiary,
       borderColor: '#000',
       borderWidth: 1,
       padding: 10,
@@ -98,7 +101,7 @@ const styles = StyleSheet.create(
     btn: {
       alignItems: 'center',
       marginTop: 30,
-      backgroundColor: '#FF5474',
+      backgroundColor: Colors.secondary,
       padding: 20,
       borderRadius: 5,
       borderColor: '#000',

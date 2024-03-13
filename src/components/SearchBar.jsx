@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Colors from '../assets/Colors';
 
 const SearchBar = ({ search, setSearch }) => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -13,18 +14,18 @@ const SearchBar = ({ search, setSearch }) => {
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
-        <Icon name="search" color={'#fff'} size={20} style={{ paddingLeft: 15, marginRight: 10 }} />
+        <Icon name="search" color={Colors.white} size={20} style={{ paddingLeft: 15, marginRight: 10 }} />
         <TextInput
           inputMode='search'
           style={styles.searchInput}
           placeholder="Procurar fornecedor..."
-          placeholderTextColor='#fff8'
+          placeholderTextColor={Colors.whiteWithOpacity}
           onChangeText={handleSearch}
           value={search}
         />
         {isSearchActive && (
           <TouchableOpacity onPress={() => { setSearch(''); setIsSearchActive(false); }}>
-            <Icon name="close" color={'#fff'} size={20} />
+            <Icon name="close" color={Colors.white} size={20}/>
           </TouchableOpacity>
         )}
       </View>
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     flexDirection:'row', 
     alignItems:'center'},
   searchBar: {
-    backgroundColor: '#0008',
+    backgroundColor: Colors.blackWithOpacity,
     borderRadius: 10,
     margin: 10,
     fontFamily: 'Anta-Regular',
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
   },
   searchInput:{ 
     fontSize: 15, 
-    width:'80%', 
-    color: '#fff', 
-    fontFamily: 'Anta-Regular'}
+    width:'78%', 
+    color: Colors.white, 
+    fontFamily: 'Anta-Regular',
+  }
 });

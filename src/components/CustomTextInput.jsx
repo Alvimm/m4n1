@@ -1,4 +1,5 @@
 import { StyleSheet, TextInput } from "react-native";
+import Colors from "../assets/Colors";
 
 function CustomTextInput({ placeholder, onChangeText, value, inputMode = 'text', maxLength }) {
   return (
@@ -7,10 +8,10 @@ function CustomTextInput({ placeholder, onChangeText, value, inputMode = 'text',
       maxLength={maxLength}
       style={styles.input}
       placeholder={placeholder}
-      placeholderTextColor="#0005"
+      placeholderTextColor= {Colors.blackWithMoreOpacity}
       onChangeText={onChangeText}
       value={value}
-      cursorColor="#0008"
+      cursorColor={Colors.blackWithOpacity}
     />
   );
 }
@@ -21,8 +22,8 @@ const styles = StyleSheet.create(
       fontFamily: 'Anta-Regular',
       height: 40,
       marginBottom: 30,
-      color: '#000',
-      borderBottomColor: '#0008',
+      color: Colors.black,
+      borderBottomColor: Colors.blackWithOpacity,
       borderBottomWidth: 1,
     },});
     

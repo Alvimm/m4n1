@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Text } from 'react-native';
 import ListaFornecedores from '../screens/ListaFornecedores';
 import Cadastro from '../screens/Cadastro';
+import Colors from '../assets/Colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +16,8 @@ export default function BottomTabs() {
         height: 60,
         paddingBottom: 5,
         paddingTop: 5,
-        backgroundColor: '#FF5474',
-        borderTopColor: '#000'
+        backgroundColor: Colors.secondary,
+        borderTopColor: Colors.blackWithMoreOpacity
       }
     }}>
       <Tab.Screen name="home" component={Cadastro} options={{
@@ -24,19 +25,19 @@ export default function BottomTabs() {
           <Text style={{
             fontFamily: 'Anta-Regular',
             fontSize: 14,
-            color: focused ? '#000' : '#0004'
+            color: focused ? Colors.black : Colors.blackWithMoreOpacity
           }}>home</Text>
         ),
         tabBarIcon: ({ focused, size }) => (
-          <Icon name="home" color={focused ? '#000' : '#0004'} size={size} />
+          <Icon name="home" color={focused ? Colors.black : Colors.blackWithMoreOpacity} size={size} />
         ),
       }} />
       <Tab.Screen name="fornecedores" component={ListaFornecedores} options={{
         tabBarLabel: ({ focused }) => (
-          <Text style={{ fontFamily: 'Anta-Regular', fontSize: 14, color: focused ? '#000' : '#0004' }}>fornecedores</Text>
+          <Text style={{ fontFamily: 'Anta-Regular', fontSize: 14, color: focused ? Colors.black : Colors.blackWithMoreOpacity }}>fornecedores</Text>
         ),
         tabBarIcon: ({ focused, size }) => (
-          <Icon name="list" color={focused ? '#000' : '#0004'} size={size} />
+          <Icon name="list" color={focused ? Colors.black : Colors.blackWithMoreOpacity} size={size} />
         ),
       }} />
     </Tab.Navigator>

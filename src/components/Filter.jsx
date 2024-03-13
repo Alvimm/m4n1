@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Modal, TouchableOpacity, View, Text, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Categories from '../assets/Categories';
+import Colors from '../assets/Colors';
 
 const Filter = ({ onFilterChange }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -31,7 +32,7 @@ const Filter = ({ onFilterChange }) => {
       >
         <Text style={styles.chipText}>{chip.text}</Text>
         {isSelected && (
-          <Icon name="close" color={'#fff'} size={16} style={styles.closeIcon} />
+          <Icon name="close" color={Colors.white} size={16} style={styles.closeIcon} />
         )}
       </TouchableOpacity>
     );
@@ -40,7 +41,7 @@ const Filter = ({ onFilterChange }) => {
   return (
     <View style={{ position: 'absolute', right: 15, top:25 }}>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Icon name="filter" color={'#0009'} size={40} />
+        <Icon name="filter" color={Colors.blackSecondary} size={40} />
       </TouchableOpacity>
 
       <Modal
@@ -62,7 +63,7 @@ const Filter = ({ onFilterChange }) => {
             />
 
             <TouchableOpacity style={styles.closeBtn} onPress={() => setModalVisible(!modalVisible)}>
-              <Icon name="close" color={'#fff'} size={30} />
+              <Icon name="close" color={Colors.white} size={30} />
             </TouchableOpacity>
           </View>
         </View>
@@ -81,10 +82,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   modalView: {
-    backgroundColor: "#000",
+    backgroundColor: Colors.blackSecondary,
     borderRadius: 20,
     padding: 20,
-    shadowColor: "#fff",
+    shadowColor: Colors.white,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 20,
     fontFamily: 'Anta-Regular',
-    color: '#fff',
+    color: Colors.white,
     marginBottom: 10,
   },
   closeBtn: {
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   },
 
   chip: (isSelected) => ({
-    backgroundColor: isSelected ? '#0008' : '#0004',
+    backgroundColor: isSelected ? Colors.blackWithOpacity : Colors.blackWithMoreOpacity,
     padding: 10,
     borderRadius: 5,
     marginRight: 10,
@@ -115,12 +116,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 1,
-    borderColor: isSelected ? '#ddd' : '#ccc',
+    borderColor: isSelected ? Colors.white : Colors.whiteWithMoreOpacity,
   }),
   chipText: {
     fontSize: 16,
     fontFamily: 'Anta-Regular',
-    color: '#fff',
+    color: Colors.white,
   },
   closeIcon: {
     marginLeft: 5,
