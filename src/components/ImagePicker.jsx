@@ -2,7 +2,7 @@ import { Alert, TouchableOpacity, Text, View, Image } from 'react-native';
 import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const ImagePicker = ({ imagem, setImagem, styles }) => {
+const ImagePicker = ({ image, setImage, styles }) => {
   const options = {
     storageOptions: {
       path: 'image',
@@ -22,7 +22,7 @@ const ImagePicker = ({ imagem, setImagem, styles }) => {
           text: 'Abrir câmera',
           onPress: () => launchCamera(options, (response) => {
             if (response.assets && response.assets[0].uri) {
-              setImagem(response.assets[0].uri);
+              setImage(response.assets[0].uri);
             }
           }),
         },
@@ -30,7 +30,7 @@ const ImagePicker = ({ imagem, setImagem, styles }) => {
           text: 'Abrir galeria de imagens',
           onPress: () => launchImageLibrary(options, (response) => {
             if (response.assets && response.assets[0].uri) {
-              setImagem(response.assets[0].uri);
+              setImage(response.assets[0].uri);
             }
           }),
         },
@@ -42,10 +42,10 @@ const ImagePicker = ({ imagem, setImagem, styles }) => {
   return (
     <TouchableOpacity style={styles.btnImg} onPress={handlePress}>
       <Text style={styles.btnText}>Escolha sua foto</Text>
-      {imagem && (
+      {image && (
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Image
-            source={{ uri: imagem }}
+            source={{ uri: image }}
             style={styles.selectedImg}
           />
           <Icon name="checkmark-circle" color={'green'} size={20} />
