@@ -1,12 +1,8 @@
-import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Text, View } from 'react-native';
 import React, { useState, useEffect, useMemo } from 'react';
 import SearchBar from '../components/SearchBar';
-// import Icon from 'react-native-vector-icons/Ionicons';
 import Filter from '../components/Filter';
 import { styles } from './stylesSL';
-
-
-
 
 const SuppliersList = ({ route }) => {
   const [registrationData, setRegistrationData] = useState(route.params ? route.params.registrationData : []);
@@ -30,7 +26,7 @@ const SuppliersList = ({ route }) => {
     }
   
     if (search) {
-      filtered = filtered.filter(item => item.nome.toLowerCase().includes(search.toLowerCase()));
+      filtered = filtered.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
     }
   
     return filtered;
@@ -55,9 +51,6 @@ const SuppliersList = ({ route }) => {
                 <Text style={styles.categoryText}>{`${item.category}`}</Text>
                 <Text style={{ fontFamily: 'Kanit-Regular', color: 'gray', fontSize: 16 }}>{`${item.address}`}</Text>
               </View>
-              {/* <TouchableOpacity onPress={() => console.log('deleted')} style={styles.deleteButton}>
-              <Icon name="trash" color={'red'} size={30} />
-              </TouchableOpacity> */}
             </View>
           )
         }}

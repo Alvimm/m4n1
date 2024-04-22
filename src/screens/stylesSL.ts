@@ -41,9 +41,4 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
   },
-//   deleteButton: {
-//     position: 'absolute',
-//     right: 10,
-//     top: 10,
-//   },
 });
